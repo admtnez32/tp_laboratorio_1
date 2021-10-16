@@ -3,14 +3,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-/// @fn int CargarCadena(char[], int, int)
-/// @brief Carga de cadena con reintentos
+/// @fn int CargarCadena(char[], int)
+/// @brief Carga de cadena
 ///
 /// @param cadena	cadena a cargar
 /// @param tamanio tamanio de la cadena
-/// @param reintentos	cantidad de reintentos
 /// @return	retorna -1 si no pudo cargar la cadena; retorna 0 si pudo cargar la cadena
-int CargarCadena(char cadena[], int tamanio, int reintentos);
+int CargarCadena(char cadena[], int tamanio);
 
 /// @fn int PedirNumeroConRango(char[], char[], int, int)
 /// @brief Solicitar numero con rango min y max

@@ -159,10 +159,10 @@ float MostrarTotalYPromedioSalarios(Employee listaEmpleados[], int tamEmpleados)
 void MostrarListado(Employee listaEmpleados[], int tamEmpleados);
 
 /// @fn int MostrarInforme(Employee[], int, int)
-/// @brief
+/// @brief	Pregunta al user cual informe desea mostrar
 ///
-/// @param listaEmpleados
-/// @param tamEmpleados
-/// @return
+/// @param listaEmpleados	lista de empleados de tipo Employee
+/// @param tamEmpleados	tamanio de la lista
+/// @return	 retorna 0 si no pudo mostrar ningun listado; retorna 1 para todo OK
 int MostrarInforme(Employee listaEmpleados[], int tamEmpleados);
 #endif /* ARRAYEMPLOYEES_H_ */

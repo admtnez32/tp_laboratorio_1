@@ -1,6 +1,6 @@
 #include "Funciones.h"
 
-int CargarCadena(char cadena[], int tamanio, int reintentos)
+int CargarCadena(char cadena[], int tamanio)
 {
 	int retorno;
 	char bufferString[100];
@@ -11,7 +11,7 @@ int CargarCadena(char cadena[], int tamanio, int reintentos)
 
 		fflush(stdin);
 
-		if(fgets(bufferString, sizeof(bufferString), stdin) != NULL && bufferString[0] != '\n')
+		if(gets(bufferString) != NULL && strlen(bufferString) > 0)
 		{
 				if(bufferString[strnlen(bufferString, sizeof(bufferString))-1] == '\n')
 				{
@@ -24,13 +24,13 @@ int CargarCadena(char cadena[], int tamanio, int reintentos)
 				}
 				else
 				{
-					printf("Error, demasiado caracteres. Le quedan %d reintento/s\n\n", reintentos-1);
+					printf("--- Error, demasiado caracteres ---\n");
 				}
 		}
-		/*else
+		else
 		{
-			printf("E r r o r \n\n");
-		}*/
+			printf("\n--- No ingreso nada ---\n");
+		}
 	}
 
 return retorno;
@@ -83,7 +83,7 @@ int PedirNumero(int* pNumero, char mensaje[])
 	char bufferString[50];
 
 		printf(mensaje);
-		if(pNumero != NULL && CargarCadena(bufferString, sizeof(bufferString), 3) == 0 && esNumerica(bufferString, sizeof(bufferString)))
+		if(pNumero != NULL && CargarCadena(bufferString, sizeof(bufferString)) == 0 && esNumerica(bufferString, sizeof(bufferString)))
 		{
 			retorno = 1;
 			*pNumero = atoi(bufferString);
@@ -124,7 +124,7 @@ float PedirFloat(float* pNumero, char mensaje[])
 	char bufferString[50];
 
 	printf(mensaje);
-	if(pNumero != NULL && CargarCadena(bufferString, sizeof(bufferString), 3) == 0 && esNumerica(bufferString, sizeof(bufferString)))
+	if(pNumero != NULL && CargarCadena(bufferString, sizeof(bufferString)) == 0 && esNumerica(bufferString, sizeof(bufferString)))
 	{
 		retorno = 1;
 		*pNumero = atof(bufferString);
@@ -161,13 +161,14 @@ return retorno;
 
 int PedirCaracteres(char cadena[], int tamanio, char mensaje[])
 {
-	int retorno = 1;
+	int retorno = -1;
 
 	if(cadena != NULL && tamanio > 0)
 	{
 		printf(mensaje);
-		if(CargarCadena(cadena, tamanio, 3) == 0)
+		if(CargarCadena(cadena, tamanio) == 0)
 		{
+			retorno = 1;
 			for(int i = 0; i < tamanio && cadena[i] != '\0'; i++)
 			{
 				if(cadena[i] < 'A' || cadena[i] > 'z')
@@ -190,7 +191,7 @@ int PedirCaracteresConReintentos(char cadena[], int tamanio, char mensaje[], int
 	{
 		do
 		{
-			if(PedirCaracteres(cadena, tamanio, mensaje))
+			if(PedirCaracteres(cadena, tamanio, mensaje) == 1)
 			{
 				retorno = 1;
 				reintentos = 0;

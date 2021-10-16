@@ -19,7 +19,6 @@
 int main(void) {
 	setbuf(stdout, NULL);
 
-
 	Employee empleados[TAM];//= {	{100, "Alexis", "Martinez", 450.55, 1, FALSE}, {101, "Maria", "Martinez", 123.99, 2, FALSE}, {102, "David", "Martinez", 259.01, 3, FALSE},
 			//{104, "Javier", "Martinez", 133.05, 1, FALSE}, {105, "Jose", "Martinez", 125, 2, FALSE}, {106, "Vicky", "Martinez", 238.15, 3, FALSE}};
 	int opcion = -1;
