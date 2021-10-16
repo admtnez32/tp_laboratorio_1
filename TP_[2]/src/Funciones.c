@@ -3,7 +3,7 @@
 int CargarCadena(char cadena[], int tamanio)
 {
 	int retorno;
-	char bufferString[100];
+	char bufferString[1000];
 	retorno = -1;
 
 	if(cadena != NULL && tamanio > 0)
